@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Data Annotation Project</title>
+</head>
+<body>
+    <h1>Language Data Annotation Project</h1>
+
+    <h2>Authors: Matouš Pelikán, Michal Tichý, Michal Olbrich</h2>
+
+    <p>The goal of the previous task was to select any language data and annotate any linguistic phenomenon within it. We chose the Derinet project (Vidra et al., 2019) for our purpose. Derinet is a derivational network containing 1.2 million Czech lemmas. Each formed word in Derinet has a reference to the base word from which it was formed. This creates graph trees with unformed words as roots. The annotation goal was to decide whether these unformed root words in the derivational trees are indeed unformed, or in fact formed words. For this purpose, 200 unformed words according to Derinet were randomly selected by a script. Such words in Derinet are marked by having zero after the decimal point in the ID column.</p>
+
+    <p>For the purposes of this task, we decided to increase this number to 1200 to achieve better accuracy on test data.</p>
+
+    <h2>Golden Data</h2>
+    <p>The manually annotated data was divided in a 50:50 ratio into training and testing sets (600 each).</p>
+
+    <h2>Classifier</h2>
+    <p>A simple naive bayes classifier is trained on the training data, classifying each word based on its n-grams for n ranging from 2 to 15.</p>
+
+    <h2>Baseline</h2>
+    <p>The baseline predictor chosen is a naive classifier that classifies each word as "n", formed words.</p>
+
+    <h2>Evaluation</h2>
+    <ul>
+        <li>Average accuracy of the <strong>naive bayes</strong> classifier across 50 independent runs: <strong>0.6783</strong></li>
+        <li>Average accuracy of the <strong>baseline</strong> classifier across 50 independent runs: <strong>0.6303</strong></li>
+    </ul>
+
+    <h2>How to Run</h2>
+    <p>Locally run the script <strong>train.py</strong>, which will train and evaluate the data 50 times with different train/test data splits according to the given seed. It prints average achieved classification values. Files needed are: <strong>make_golden.py, evaluation.py, dataset.tsv</strong></p>
+
+    <h2>Download</h2>
+    <p>
+        <a href="shared-task.zip" download="shared-task.zip">
+            <button>Download shared-task.zip</button>
+        </a>
+    </p>
+
+
+</body>
+</html>
